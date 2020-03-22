@@ -130,8 +130,8 @@ GameObject:
   m_Component:
   - component: {fileID: 88626646}
   - component: {fileID: 88626645}
-  - component: {fileID: 88626647}
   - component: {fileID: 88626648}
+  - component: {fileID: 88626647}
   m_Layer: 0
   m_Name: C_Yellow
   m_TagString: Untagged
@@ -211,9 +211,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 88626644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1d749b1d12750e40af45b028b9e706d, type: 3}
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateName: Yellow
   stateText: {fileID: 595922075}
   image: {fileID: 1172477433}
   sprite: {fileID: 21300000, guid: 789545fe476fe574d8f56c9befa11701, type: 3}
@@ -772,8 +773,8 @@ GameObject:
   m_Component:
   - component: {fileID: 597340547}
   - component: {fileID: 597340546}
-  - component: {fileID: 597340549}
   - component: {fileID: 597340548}
+  - component: {fileID: 597340550}
   m_Layer: 0
   m_Name: C_Blue
   m_TagString: Untagged
@@ -885,7 +886,7 @@ PolygonCollider2D:
       - {x: 0.21544938, y: -0.08895673}
       - {x: 0.2449443, y: -0.055216324}
       - {x: 0.24591903, y: -0.039110243}
---- !u!114 &597340549
+--- !u!114 &597340550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,9 +895,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 597340545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f6c0dbb5b2233443845b260e6c787f6, type: 3}
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateName: Blue
   stateText: {fileID: 595922075}
   image: {fileID: 1172477433}
   sprite: {fileID: 21300000, guid: e4c069e3180ba82469dc348a96d16524, type: 3}
@@ -1294,8 +1296,8 @@ GameObject:
   m_Component:
   - component: {fileID: 987509337}
   - component: {fileID: 987509336}
-  - component: {fileID: 987509338}
   - component: {fileID: 987509339}
+  - component: {fileID: 987509338}
   m_Layer: 0
   m_Name: C_Grey
   m_TagString: Untagged
@@ -1375,9 +1377,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 987509335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e594b042298b11348acd7868c437cd9a, type: 3}
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateName: Grey
   stateText: {fileID: 595922075}
   image: {fileID: 1172477433}
   sprite: {fileID: 21300000, guid: c6ef304887b55864a941aa14ed56ef85, type: 3}
@@ -2052,8 +2055,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1507835148}
   - component: {fileID: 1507835147}
-  - component: {fileID: 1507835146}
   - component: {fileID: 1507835149}
+  - component: {fileID: 1507835146}
   m_Layer: 0
   m_Name: C_Green
   m_TagString: Untagged
@@ -2070,9 +2073,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1507835145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bcde19f6c5a50d47be11458b1c24929, type: 3}
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateName: Green
   stateText: {fileID: 595922075}
   image: {fileID: 1172477433}
   sprite: {fileID: 21300000, guid: 03886f693ff0165458ca2ae5350b10e5, type: 3}
@@ -2338,8 +2342,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1819503202}
   - component: {fileID: 1819503201}
-  - component: {fileID: 1819503203}
   - component: {fileID: 1819503204}
+  - component: {fileID: 1819503203}
   m_Layer: 0
   m_Name: C_LightBlue
   m_TagString: Untagged
@@ -2419,9 +2423,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1819503200}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943c99ab3eba4e74d892f6d6a171ed56, type: 3}
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateName: LightBlue
   stateText: {fileID: 595922075}
   image: {fileID: 1172477433}
   sprite: {fileID: 21300000, guid: 1fe55d5c2da5c4b49868c036208d43fd, type: 3}
@@ -2474,8 +2479,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1850721636}
   - component: {fileID: 1850721635}
-  - component: {fileID: 1850721637}
   - component: {fileID: 1850721638}
+  - component: {fileID: 1850721637}
   m_Layer: 0
   m_Name: C_White
   m_TagString: Untagged
@@ -2555,9 +2560,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1850721634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f5f301cb15b9ef43b914587451cf455, type: 3}
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateName: White
   stateText: {fileID: 595922075}
   image: {fileID: 1172477433}
   sprite: {fileID: 21300000, guid: 53ec75457291fb5499a60eb7fdff35c1, type: 3}
@@ -2647,8 +2653,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1891319266}
   - component: {fileID: 1891319265}
-  - component: {fileID: 1891319267}
   - component: {fileID: 1891319268}
+  - component: {fileID: 1891319267}
   m_Layer: 0
   m_Name: C_Red
   m_TagString: Untagged
@@ -2728,9 +2734,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1891319264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3804f92fba2f5c41871a3227b6e20fd, type: 3}
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateName: Red
   stateText: {fileID: 595922075}
   image: {fileID: 1172477433}
   sprite: {fileID: 21300000, guid: ebfbba6ce5742d846a766e49dcf0f7a8, type: 3}
@@ -2923,8 +2930,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2024042049}
   - component: {fileID: 2024042048}
-  - component: {fileID: 2024042050}
   - component: {fileID: 2024042051}
+  - component: {fileID: 2024042050}
   m_Layer: 0
   m_Name: C_DarkGreen
   m_TagString: Untagged
@@ -3004,9 +3011,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2024042047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 026798ed0f8993145b262170810fc48f, type: 3}
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateName: DarkGreen
   stateText: {fileID: 595922075}
   image: {fileID: 1172477433}
   sprite: {fileID: 21300000, guid: dede329fa1a9d8a4aaee5dbbc6287883, type: 3}
