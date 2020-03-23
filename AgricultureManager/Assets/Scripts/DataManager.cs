@@ -1,4 +1,6 @@
-﻿// Pulling from the first suggestion here: https://gamedev.stackexchange.com/questions/110958/what-is-the-proper-way-to-handle-data-between-scenes
+﻿using System.Collections.Generic;
+using UnityEngine;
+// Pulling from the first suggestion here: https://gamedev.stackexchange.com/questions/110958/what-is-the-proper-way-to-handle-data-between-scenes
 // Access data from this script anywhere using DataManager.blueState...
 public static class DataManager
 {
@@ -34,6 +36,9 @@ public static class DataManager
         fireChance = 5;
     }
 
+    /**
+     * Returns the sum of cash values from each state
+     */
     public static int GetTotalCash() {
         return blueState.dollars + lightBlueState.dollars +
             greenState.dollars + redState.dollars +
@@ -41,10 +46,36 @@ public static class DataManager
             darkGreenState.dollars + greyState.dollars;
     }
 
+    /**
+     * Returns the sum of co2 emissiosn from each state
+     */
     public static float GetTotalCo2() {
         return blueState.co2Emissions + lightBlueState.co2Emissions +
             greenState.co2Emissions + redState.co2Emissions +
             yellowState.co2Emissions + whiteState.co2Emissions +
             darkGreenState.co2Emissions + greyState.co2Emissions;
+    }
+
+    /**
+     * Returns a list of weather effects, or an empty list otherwise.
+     * Potential options are: drought, flood, fire
+     */
+    public static List<string> randomDisasters() {
+        List<string> disasterList = new List<string>();
+        int droughtRoll = Random.Range(1, 101);
+        int floodRoll = Random.Range(1, 101);
+        int fireRoll = Random.Range(1, 101);
+
+        if(droughtRoll <= droughtChance) {
+            disasterList.Add("drought");
+        }
+        if(floodRoll <= floodingChance) {
+            disasterList.Add("flood");
+        }
+        if(fireRoll <= fireChance) {
+            disasterList.Add("fire");
+        }
+
+        return disasterList;
     }
 }
