@@ -37,8 +37,8 @@ public class CoreGameController : MonoBehaviour
         else {
             // Alert the user also
             // Consider setting the slider values back to 0 after purchase? Just uncomment the lines below
-            // cowSlider.value = 0;
-            // grainSlider.value = 0;
+            cowSlider.value = 0;
+            grainSlider.value = 0;
             Debug.Log("Purchase successful");
             activeState.numCows += cowsToBuy;
             activeState.numGrains += grainToBuy;
