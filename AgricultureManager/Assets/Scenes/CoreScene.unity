@@ -2156,7 +2156,7 @@ GameObject:
   - component: {fileID: 1354742735}
   - component: {fileID: 1354742734}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SimulateButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2502,6 +2502,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yearText: {fileID: 705598747}
   activeState: 
+  cowSlider: {fileID: 451712459}
+  grainSlider: {fileID: 626009620}
+  cowCost: 10
+  grainCost: 10
 --- !u!1 &1447317805
 GameObject:
   m_ObjectHideFlags: 0
