@@ -7,9 +7,8 @@ using UnityEngine.UI;
 public class CoreGameController : MonoBehaviour
 {
     public Text yearText;
-    // The active state is updated in our "OnClick" event, it should not be manually set in the inspector
-    [HideInInspector]
-    public string activeState;
+    // The active state is updated in our "OnClick" event (see StateController), it should not be manually set in the inspector
+    public State activeState;
 
     public Slider cowSlider;
     public Slider grainSlider;
@@ -24,8 +23,6 @@ public class CoreGameController : MonoBehaviour
 
     public void UpdateState() {
         // Any changes made to this state will then affect the states below it
-        State toUpdate = LookupState();
-
         int cowsToBuy = (int)cowSlider.value;
         int grainToBuy = (int)grainSlider.value;
 
@@ -33,7 +30,7 @@ public class CoreGameController : MonoBehaviour
         int cowDollars = cowsToBuy * cowCost;
         int grainDollars = grainToBuy * grainCost;
         
-        if(cowDollars + grainDollars > toUpdate.dollars) {
+        if(cowDollars + grainDollars > activeState.dollars) {
             // Unable to purchase. Alert the user in some way
             Debug.LogWarning("Unable to purchase this amount of grains/cows");
         }
@@ -43,34 +40,10 @@ public class CoreGameController : MonoBehaviour
             // cowSlider.value = 0;
             // grainSlider.value = 0;
             Debug.Log("Purchase successful");
-            toUpdate.numCows += cowsToBuy;
-            toUpdate.numGrains += grainToBuy;
-            toUpdate.dollars -= (cowDollars + grainDollars);
+            activeState.numCows += cowsToBuy;
+            activeState.numGrains += grainToBuy;
+            activeState.dollars -= (cowDollars + grainDollars);
         }
 
-    }
-
-    private State LookupState() {
-        switch(activeState) {
-            case "Blue":
-                return DataManager.blueState;
-            case "LightBlue":
-                return DataManager.lightBlueState;
-            case "Green":
-                return DataManager.greenState;
-            case "Red":
-                return DataManager.redState;
-            case "Yellow":
-                return DataManager.yellowState;
-            case "White":
-                return DataManager.whiteState;
-            case "DarkGreen":
-                return DataManager.darkGreenState;
-            case "Grey":
-                return DataManager.greyState;
-            default:
-                Debug.Log($"Core game controller failed to lookup state: {activeState}");
-                throw new Exception("Invalid state name");
-        }
     }
 }

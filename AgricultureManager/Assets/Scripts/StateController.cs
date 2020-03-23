@@ -20,13 +20,12 @@ public class StateController : MonoBehaviour
     private void OnMouseDown() {
         stateText.text = $"State: {stateName}";
         image.sprite = sprite;
-        gameController.activeState = stateName;
+        gameController.activeState = stateModel;
 
         // If you want to set some other values based on the state selected (such as the current dollar amount),
         // you can access the value from the stateModel (stateModel.dollars)
     }
 
-    // Borrowed from CoreGameController
     private State LookupState() {
         switch (stateName) {
             case "Blue":
