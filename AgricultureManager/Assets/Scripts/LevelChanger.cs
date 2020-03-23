@@ -13,7 +13,7 @@ public class LevelChanger : MonoBehaviour
         } 
         else {
             // The main game scene is behind this one
-            SceneManager.LoadScene(current.buildIndex - 1);
+            SceneManager.LoadScene(current.buildIndex + 1);
         }
     }
 
@@ -29,7 +29,7 @@ public class LevelChanger : MonoBehaviour
             Win();
         }
         else {
-
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 
