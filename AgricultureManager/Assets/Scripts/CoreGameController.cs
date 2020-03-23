@@ -38,6 +38,10 @@ public class CoreGameController : MonoBehaviour
             Debug.LogWarning("Unable to purchase this amount of grains/cows");
         }
         else {
+            // Alert the user also
+            // Consider setting the slider values back to 0 after purchase? Just uncomment the lines below
+            // cowSlider.value = 0;
+            // grainSlider.value = 0;
             Debug.Log("Purchase successful");
             toUpdate.numCows += cowsToBuy;
             toUpdate.numGrains += grainToBuy;
