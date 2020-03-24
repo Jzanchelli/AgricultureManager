@@ -8,6 +8,8 @@ public class Simulator : MonoBehaviour
     public Text yearText;
     public Text moneyText;
     public Text co2Text;
+
+    public int cowDeathChance = 25;
     // Start is called before the first frame update
     private List<State> stateList;
     void Start()
@@ -30,8 +32,10 @@ public class Simulator : MonoBehaviour
 
         moneyText.text = $"Total Cash: ${totalMoney}";
         co2Text.text = $"Total CO2: {totalCo2}";
-        
+
         // Run random effects
+        RunCowDeath();
+        List<string> disasters = DataManager.randomDisasters();
 
         // Update values
         DataManager.currentYear += 1;
@@ -40,6 +44,19 @@ public class Simulator : MonoBehaviour
     public void ResetGrainCount() {
         foreach(State state in stateList) {
             state.numGrains = 0;
+        }
+    }
+
+    public void RunCowDeath() {
+        foreach(State state in stateList) {
+            int deaths = 0;
+            for(int i = 0; i < state.numCows; ++i) {
+                if(Random.Range(1, 101) <= cowDeathChance) {
+                    deaths++;
+                }
+            }
+
+            state.numCows -= deaths;
         }
     }
 }
