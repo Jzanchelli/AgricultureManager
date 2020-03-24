@@ -37,4 +37,9 @@ public class Simulator : MonoBehaviour
         DataManager.currentYear += 1;
     }
 
+    public void ResetGrainCount() {
+        foreach(State state in stateList) {
+            state.numGrains = 0;
+        }
+    }
 }

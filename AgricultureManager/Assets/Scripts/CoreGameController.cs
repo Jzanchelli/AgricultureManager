@@ -10,6 +10,9 @@ public class CoreGameController : MonoBehaviour
     public Text stateText;
     public Text co2Text;
     public Text moneyText;
+    public Text cowText;
+    public Text grainText;
+
     // The active state is updated in our "OnClick" event (see StateController), it should not be manually set in the inspector
     public State activeState;
 
@@ -56,5 +59,7 @@ public class CoreGameController : MonoBehaviour
         stateText.text = $"State: {activeState.name}";
         co2Text.text = $"Yearly CO2: {activeState.co2Emissions}";
         moneyText.text = $"Money: ${activeState.dollars}";
+        cowText.text = $"Cow count: {activeState.numCows}";
+        grainText.text = $"Grain count: {activeState.numGrains}";
     }
 }
