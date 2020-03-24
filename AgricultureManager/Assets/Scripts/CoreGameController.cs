@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class CoreGameController : MonoBehaviour
 {
     public Text yearText;
+    public Text stateText;
+    public Text co2Text;
+    public Text moneyText;
     // The active state is updated in our "OnClick" event (see StateController), it should not be manually set in the inspector
     public State activeState;
 
@@ -21,6 +24,7 @@ public class CoreGameController : MonoBehaviour
         yearText.text = $"Year {DataManager.currentYear}";
     }
 
+    // Called when purchased button is clicked
     public void UpdateState() {
         // Any changes made to this state will then affect the states below it
         int cowsToBuy = (int)cowSlider.value;
@@ -45,5 +49,12 @@ public class CoreGameController : MonoBehaviour
             activeState.dollars -= (cowDollars + grainDollars);
         }
 
+        NewStateClicked();
+    }
+
+    public void NewStateClicked() {
+        stateText.text = $"State: {activeState.name}";
+        co2Text.text = $"Yearly CO2: {activeState.co2Emissions}";
+        moneyText.text = $"Money: ${activeState.dollars}";
     }
 }

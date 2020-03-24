@@ -18,10 +18,9 @@ public class StateController : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        stateText.text = $"State: {stateName}";
         image.sprite = sprite;
         gameController.activeState = stateModel;
-
+        gameController.NewStateClicked();
         // If you want to set some other values based on the state selected (such as the current dollar amount),
         // you can access the value from the stateModel (stateModel.dollars)
     }
