@@ -78,4 +78,10 @@ public static class DataManager
 
         return disasterList;
     }
+
+    public static List<State> GetStates() {
+        return new List<State>() {
+            blueState, lightBlueState, greenState, redState, yellowState, whiteState, darkGreenState, greyState
+        };
+    }
 }
