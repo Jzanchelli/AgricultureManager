@@ -9,7 +9,11 @@ public class Simulator : MonoBehaviour
     public Text moneyText;
     public Text co2Text;
 
+    [Range(1, 100)]
     public int cowDeathChance = 25;
+    public int moneyFromCows = 5;
+    public int moneyFromGrain = 10;
+
     // Start is called before the first frame update
     private List<State> stateList;
     void Start()
@@ -33,6 +37,11 @@ public class Simulator : MonoBehaviour
         moneyText.text = $"Total Cash: ${totalMoney}";
         co2Text.text = $"Total CO2: {totalCo2}";
 
+        // Increase the state dollar amounts based on their number of cows/grains
+        foreach (State state in stateList) {
+            state.dollars += state.numCows * moneyFromCows + state.numGrains + moneyFromGrain;
+        }
+
         // Run random effects
         RunCowDeath();
         List<string> disasters = DataManager.randomDisasters();
@@ -47,7 +56,7 @@ public class Simulator : MonoBehaviour
         }
     }
 
-    public void RunCowDeath() {
+    private void RunCowDeath() {
         foreach(State state in stateList) {
             int deaths = 0;
             for(int i = 0; i < state.numCows; ++i) {
@@ -58,5 +67,9 @@ public class Simulator : MonoBehaviour
 
             state.numCows -= deaths;
         }
+    }
+
+    private void IncreaseMoney() {
+        
     }
 }
