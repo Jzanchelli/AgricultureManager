@@ -41,4 +41,13 @@ public class LevelChanger : MonoBehaviour
         // Loads the next scene in the build settings after this one. Make sure this is the winning page
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    // Loads last scene in build settings (should be help menu)
+    public void GoToHelp() {
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+    }
+
+    public void GoToMainMenu() {
+        SceneManager.LoadScene(0);
+    }
 }
