@@ -1,59 +1,90 @@
-﻿using System.Collections.Generic;
+﻿using System.Reflection;
+using System.Collections.Generic;
 using UnityEngine;
+
 // Pulling from the first suggestion here: https://gamedev.stackexchange.com/questions/110958/what-is-the-proper-way-to-handle-data-between-scenes
 // Access data from this script anywhere using DataManager.blueState...
 public static class DataManager
 {
+    public static State aquaState { get; set; }
     public static State blueState { get; set; }
-    public static State lightBlueState { get; set; }
-    public static State greenState { get; set; }
-    public static State redState { get; set; }
-    public static State yellowState { get; set; }
-    public static State whiteState { get; set; }
+    public static State brownState { get; set; }
     public static State darkGreenState { get; set; }
-    public static State greyState { get; set; }
-    public static int currentYear { get; set; }
+    public static State greenState { get; set; }
+    public static State lightGreenState { get; set; }
+    public static State yellowState { get; set; }
+    public static State orangeState { get; set; }
 
+    public static int currentYear { get; set; }
     public static int droughtChance { get; set; }
     public static int floodingChance { get; set; }
     public static int fireChance { get; set; }
 
+    private static PropertyInfo[] properties;
+
     static DataManager() {
+        int startingCows = 10;
+        int startingGrains = 10;
+        int startingDollars = 10;
+
         // Order is (Name, NumCows, NumGrains, StartingDollars)
-        blueState = new State("Blue", 10, 10, 10);
-        lightBlueState = new State("Lightblue", 10, 10, 10);
-        greenState = new State("Green", 10, 10, 10);
-        redState = new State("Red", 10, 10, 10);
-        yellowState = new State("Yellow", 10, 10, 10);
-        whiteState = new State("White", 10, 10, 10);
-        darkGreenState = new State("DarkGreen", 10, 10, 10);
-        greyState = new State("Grey", 10, 10, 10);
+        aquaState = new State("Aqua", startingCows, startingGrains, startingDollars);
+        blueState = new State("Blue", startingCows, startingGrains, startingDollars);
+        brownState = new State("Brown", startingCows, startingGrains, startingDollars);
+        darkGreenState = new State("DarkGreen", startingCows, startingGrains, startingDollars);
+        greenState = new State("Green", startingCows, startingGrains, startingDollars);
+        lightGreenState = new State("LightGreen", startingCows, startingGrains, startingDollars);
+        yellowState = new State("Yellow", startingCows, startingGrains, startingDollars);
+        orangeState = new State("Orange", startingCows, startingGrains, startingDollars);
 
         currentYear = 1;
 
         droughtChance = 5;
         floodingChance = 5;
         fireChance = 5;
+
+        properties = typeof(DataManager).GetProperties();
     }
 
     /**
      * Returns the sum of cash values from each state
      */
     public static int GetTotalCash() {
+        int totalCash = 0;
+        foreach(var property in properties) {
+            if(property.PropertyType == typeof(State)) {
+                State state = (State)property.GetValue(null);
+                totalCash += state.dollars;
+            }
+        }
+
+        return totalCash;
+        /*
         return blueState.dollars + lightBlueState.dollars +
             greenState.dollars + redState.dollars +
             yellowState.dollars + whiteState.dollars +
             darkGreenState.dollars + greyState.dollars;
+        */
     }
 
     /**
      * Returns the sum of co2 emissiosn from each state
      */
     public static float GetTotalCo2() {
+        float co2EmissionsTotal = 0;
+        foreach(PropertyInfo property in properties) {
+            if(property.PropertyType == typeof(State)) {
+                State state = (State)property.GetValue(null);
+                co2EmissionsTotal += state.co2Emissions;
+            }
+        }
+
+        return co2EmissionsTotal;
+        /*
         return blueState.co2Emissions + lightBlueState.co2Emissions +
             greenState.co2Emissions + redState.co2Emissions +
             yellowState.co2Emissions + whiteState.co2Emissions +
-            darkGreenState.co2Emissions + greyState.co2Emissions;
+            darkGreenState.co2Emissions + greyState.co2Emissions;*/
     }
 
     /**
@@ -80,8 +111,18 @@ public static class DataManager
     }
 
     public static List<State> GetStates() {
+        List<State> states = new List<State>();
+        foreach(var property in properties) {
+            if(property.PropertyType == typeof(State)) {
+                states.Add((State)property.GetValue(null));
+            }
+        }
+
+        return states;
+        /*
         return new List<State>() {
             blueState, lightBlueState, greenState, redState, yellowState, whiteState, darkGreenState, greyState
         };
+        */
     }
 }
