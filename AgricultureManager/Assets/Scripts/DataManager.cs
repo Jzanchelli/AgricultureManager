@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+﻿using System.Reflection; // For accessing properties of this DataManager dynamically
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,9 +31,9 @@ public static class DataManager
         aquaState = new State("Aqua", startingCows, startingGrains, startingDollars);
         blueState = new State("Blue", startingCows, startingGrains, startingDollars);
         brownState = new State("Brown", startingCows, startingGrains, startingDollars);
-        darkGreenState = new State("DarkGreen", startingCows, startingGrains, startingDollars);
+        darkGreenState = new State("Dark Green", startingCows, startingGrains, startingDollars);
         greenState = new State("Green", startingCows, startingGrains, startingDollars);
-        lightGreenState = new State("LightGreen", startingCows, startingGrains, startingDollars);
+        lightGreenState = new State("Light Green", startingCows, startingGrains, startingDollars);
         yellowState = new State("Yellow", startingCows, startingGrains, startingDollars);
         orangeState = new State("Orange", startingCows, startingGrains, startingDollars);
 
@@ -59,12 +59,6 @@ public static class DataManager
         }
 
         return totalCash;
-        /*
-        return blueState.dollars + lightBlueState.dollars +
-            greenState.dollars + redState.dollars +
-            yellowState.dollars + whiteState.dollars +
-            darkGreenState.dollars + greyState.dollars;
-        */
     }
 
     /**
@@ -80,11 +74,6 @@ public static class DataManager
         }
 
         return co2EmissionsTotal;
-        /*
-        return blueState.co2Emissions + lightBlueState.co2Emissions +
-            greenState.co2Emissions + redState.co2Emissions +
-            yellowState.co2Emissions + whiteState.co2Emissions +
-            darkGreenState.co2Emissions + greyState.co2Emissions;*/
     }
 
     /**
@@ -119,10 +108,5 @@ public static class DataManager
         }
 
         return states;
-        /*
-        return new List<State>() {
-            blueState, lightBlueState, greenState, redState, yellowState, whiteState, darkGreenState, greyState
-        };
-        */
     }
 }

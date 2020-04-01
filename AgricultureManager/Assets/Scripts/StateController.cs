@@ -34,11 +34,11 @@ public class StateController : MonoBehaviour
                 return DataManager.blueState;
             case "Brown":
                 return DataManager.brownState;
-            case "DarkGreen":
+            case "Dark Green":
                 return DataManager.darkGreenState;
             case "Green":
                 return DataManager.greenState;
-            case "LightGreen":
+            case "Light Green":
                 return DataManager.lightGreenState;
             case "Orange":
                 return DataManager.orangeState;
