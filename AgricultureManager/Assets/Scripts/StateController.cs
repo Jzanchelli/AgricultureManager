@@ -5,8 +5,7 @@ using UnityEngine.UI;
 public class StateController : MonoBehaviour
 {
     public string stateName;
-    public Text stateText;
-    public Image image;
+    private Image stateImageHolder;
     public Sprite sprite;
     private CoreGameController gameController;
 
@@ -15,11 +14,12 @@ public class StateController : MonoBehaviour
     void Start() {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<CoreGameController>();
         stateModel = LookupState();
+        stateImageHolder = GameObject.FindGameObjectWithTag("StateImage").GetComponent<Image>();
     }
 
     private void OnMouseDown() {
-        image.sprite = sprite;
-        image.color = Color.white;
+        stateImageHolder.sprite = sprite;
+        stateImageHolder.color = Color.white;
         gameController.activeState = stateModel;
         gameController.NewStateClicked();
         // If you want to set some other values based on the state selected (such as the current dollar amount),

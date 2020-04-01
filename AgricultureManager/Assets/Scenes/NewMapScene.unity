@@ -293,6 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 116434184}
   - component: {fileID: 116434185}
+  - component: {fileID: 116434186}
   m_Layer: 0
   m_Name: aquaState
   m_TagString: Untagged
@@ -316,7 +317,23 @@ Transform:
   m_Father: {fileID: 1388940115}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &116434185
+--- !u!114 &116434185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116434183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: Aqua
+  stateText: {fileID: 595922075}
+  image: {fileID: 1172477433}
+  sprite: {fileID: 21300000, guid: 9d82448e5a30b534e81d4bdaf2ce0c77, type: 3}
+--- !u!60 &116434186
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -341,11 +358,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+    - - {x: 0.34205937, y: 0.46734262}
+      - {x: -0.06592584, y: 0.3920169}
+      - {x: -0.18175936, y: 0.4601717}
+      - {x: -0.54656905, y: 0.41315222}
+      - {x: -0.63973975, y: 0.1515274}
+      - {x: -0.5479279, y: -0.19177389}
+      - {x: -0.30726004, y: -0.3505113}
+      - {x: -0.13154435, y: -0.48330092}
+      - {x: 0.5283228, y: -0.47375107}
+      - {x: 0.7160828, y: -0.30724764}
+      - {x: 0.8075383, y: 0.037032127}
+      - {x: 0.66171515, y: 0.4372065}
 --- !u!1 &157857109
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 21, y: 69.3}
+  m_AnchoredPosition: {x: 21, y: 69.29999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &229669804
@@ -1701,6 +1725,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 736180020}
+  - component: {fileID: 736180021}
   m_Layer: 0
   m_Name: brownState
   m_TagString: Untagged
@@ -1724,6 +1749,22 @@ Transform:
   m_Father: {fileID: 1388940115}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736180021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736180019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: Brown
+  stateText: {fileID: 595922075}
+  image: {fileID: 1172477433}
+  sprite: {fileID: 21300000, guid: 5d0884d1b8214bd40802aefeb20524b7, type: 3}
 --- !u!1 &742238599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,6 +2261,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 914070173}
+  - component: {fileID: 914070174}
+  - component: {fileID: 914070175}
   m_Layer: 0
   m_Name: blueState
   m_TagString: Untagged
@@ -2243,6 +2286,59 @@ Transform:
   m_Father: {fileID: 1388940115}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &914070174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914070172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d425c7803543ae3499ad82e6ba6f19f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: Blue
+  stateText: {fileID: 595922075}
+  image: {fileID: 1172477433}
+  sprite: {fileID: 21300000, guid: 14de773a9784a9f4aa8a69dec3509528, type: 3}
+--- !u!60 &914070175
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914070172}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.2668649, y: 0.48406148}
+      - {x: 0.01573813, y: 0.32379818}
+      - {x: -0.4156642, y: 0.29688537}
+      - {x: -0.57191855, y: 0.1567105}
+      - {x: -0.5240729, y: -0.3759359}
+      - {x: -0.75214803, y: -0.7129052}
+      - {x: -0.75189006, y: -0.87278634}
+      - {x: -0.6545013, y: -1.053643}
+      - {x: -0.4664994, y: -1.0371536}
+      - {x: 0.5210693, y: -0.35089898}
+      - {x: 0.63913345, y: -0.0832963}
+      - {x: 0.55965495, y: 0.20227134}
 --- !u!1 &976106538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,7 +2864,7 @@ GameObject:
   - component: {fileID: 1172477434}
   - component: {fileID: 1172477433}
   m_Layer: 5
-  m_Name: CountryImage
+  m_Name: StateImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3966,7 +4062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -172.4}
+  m_AnchoredPosition: {x: 0, y: -172.40002}
   m_SizeDelta: {x: 0, y: -344.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1612530930
