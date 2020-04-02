@@ -50,4 +50,15 @@ public class LevelChanger : MonoBehaviour
     public void GoToMainMenu() {
         SceneManager.LoadScene(0);
     }
+
+    public void Quit() {
+        Application.Quit();
+
+        // The above doesn't close the game if it is in the Unity editor
+        // This will simulate the above functionality but in the editor
+        if (UnityEditor.EditorApplication.isPlaying) {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+        
+    }
 }
