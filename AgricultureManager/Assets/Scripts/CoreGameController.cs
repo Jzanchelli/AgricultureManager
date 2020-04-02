@@ -14,13 +14,21 @@ public class CoreGameController : MonoBehaviour
     public Text grainText;
 
     // The active state is updated in our "OnClick" event (see StateController), it should not be manually set in the inspector
-    public State activeState;
+    // https://stackoverflow.com/questions/5842339/how-to-trigger-event-when-a-variables-value-is-changed
+    public State activeState { get { return _activeState; }
+        set {
+            _activeState = value;
+            NewStateClicked();
+        }
+    }
 
     public Slider cowSlider;
     public Slider grainSlider;
 
     public int cowCost = 10;
     public int grainCost = 10;
+
+    private State _activeState;
 
     void Start()
     {
@@ -37,7 +45,7 @@ public class CoreGameController : MonoBehaviour
         int cowDollars = cowsToBuy * cowCost;
         int grainDollars = grainToBuy * grainCost;
         
-        if(cowDollars + grainDollars > activeState.dollars) {
+        if(cowDollars + grainDollars > _activeState.dollars) {
             // Unable to purchase. Alert the user in some way
             Debug.LogWarning("Unable to purchase this amount of grains/cows");
         }
@@ -47,19 +55,19 @@ public class CoreGameController : MonoBehaviour
             cowSlider.value = 0;
             grainSlider.value = 0;
             Debug.Log("Purchase successful");
-            activeState.numCows += cowsToBuy;
-            activeState.numGrains += grainToBuy;
-            activeState.dollars -= (cowDollars + grainDollars);
+            _activeState.numCows += cowsToBuy;
+            _activeState.numGrains += grainToBuy;
+            _activeState.dollars -= (cowDollars + grainDollars);
         }
 
         NewStateClicked();
     }
 
     public void NewStateClicked() {
-        stateText.text = $"State: {activeState.name}";
-        co2Text.text = $"Yearly CO2: {activeState.co2Emissions}";
-        moneyText.text = $"Money: ${activeState.dollars}";
-        cowText.text = $"Cow count: {activeState.numCows}";
-        grainText.text = $"Grain count: {activeState.numGrains}";
+        stateText.text = $"State: {_activeState.name}";
+        co2Text.text = $"Yearly CO2: {_activeState.co2Emissions}";
+        moneyText.text = $"Money: ${_activeState.dollars}";
+        cowText.text = $"Cow count: {_activeState.numCows}";
+        grainText.text = $"Grain count: {_activeState.numGrains}";
     }
 }

@@ -19,11 +19,11 @@ public class StateController : MonoBehaviour
 
     private void OnMouseDown() {
         stateImageHolder.sprite = sprite;
+        // The color on the state image is completely transparent at the start, so the panel background is visible
+        // This needs to change to white in order to see a state's image
         stateImageHolder.color = Color.white;
+
         gameController.activeState = stateModel;
-        gameController.NewStateClicked();
-        // If you want to set some other values based on the state selected (such as the current dollar amount),
-        // you can access the value from the stateModel (stateModel.dollars)
     }
 
     private State LookupState() {
