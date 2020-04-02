@@ -3917,7 +3917,7 @@ MonoBehaviour:
   moneyText: {fileID: 337021632}
   cowText: {fileID: 443474508}
   grainText: {fileID: 560288869}
-  notificationText: {fileID: 0}
+  notificationText: {fileID: 1762868224}
   cowSlider: {fileID: 451712459}
   grainSlider: {fileID: 626009620}
   cowCost: 10
@@ -4646,7 +4646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1762868223
 RectTransform:
   m_ObjectHideFlags: 0
