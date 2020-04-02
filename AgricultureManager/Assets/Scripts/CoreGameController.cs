@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class CoreGameController : MonoBehaviour
 {
-    public Text yearText;
-    public Text stateText;
-    public Text co2Text;
-    public Text moneyText;
-    public Text cowText;
-    public Text grainText;
+    [SerializeField] private Text yearText = null;
+    [SerializeField] private Text stateText = null;
+    [SerializeField] private Text co2Text = null;
+    [SerializeField] private Text moneyText = null;
+    [SerializeField] private Text cowText = null;
+    [SerializeField] private Text grainText = null;
 
     // The active state is updated in our "OnClick" event (see StateController), it should not be manually set in the inspector
     // https://stackoverflow.com/questions/5842339/how-to-trigger-event-when-a-variables-value-is-changed
@@ -22,11 +22,11 @@ public class CoreGameController : MonoBehaviour
         }
     }
 
-    public Slider cowSlider;
-    public Slider grainSlider;
+    [SerializeField] private Slider cowSlider = null;
+    [SerializeField] private Slider grainSlider = null;
 
-    public int cowCost = 10;
-    public int grainCost = 10;
+    [SerializeField] private int cowCost = 10;
+    [SerializeField] private int grainCost = 10;
 
     private State _activeState;
 
