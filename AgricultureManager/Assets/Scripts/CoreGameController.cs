@@ -6,13 +6,17 @@ using UnityEngine.UI;
 
 public class CoreGameController : MonoBehaviour
 {
+    [Range(1, 3)]
+    public float secondsToDismiss = 1.5f;
+
     [SerializeField] private Text yearText = null;
     [SerializeField] private Text stateText = null;
     [SerializeField] private Text co2Text = null;
     [SerializeField] private Text moneyText = null;
     [SerializeField] private Text cowText = null;
     [SerializeField] private Text grainText = null;
-
+    [SerializeField] private Text notificationText = null;
+    
     // The active state is updated in our "OnClick" event (see StateController), it should not be manually set in the inspector
     // https://stackoverflow.com/questions/5842339/how-to-trigger-event-when-a-variables-value-is-changed
     public State activeState { get { return _activeState; }
@@ -48,10 +52,11 @@ public class CoreGameController : MonoBehaviour
         if(cowDollars + grainDollars > _activeState.dollars) {
             // Unable to purchase. Alert the user in some way
             Debug.LogWarning("Unable to purchase this amount of grains/cows");
+            ShowErrorMessage();
         }
         else {
-            // Alert the user also
-            // Consider setting the slider values back to 0 after purchase? Just uncomment the lines below
+            // Alert the user also that the purchase worked
+            ShowSuccessMessage();
             cowSlider.value = 0;
             grainSlider.value = 0;
             Debug.Log("Purchase successful");
@@ -69,5 +74,34 @@ public class CoreGameController : MonoBehaviour
         moneyText.text = $"Money: ${_activeState.dollars}";
         cowText.text = $"Cow count: {_activeState.numCows}";
         grainText.text = $"Grain count: {_activeState.numGrains}";
+    }
+
+    private IEnumerator DismissPurchaseText() {
+        yield return new WaitForSeconds(secondsToDismiss);
+
+        notificationText.gameObject.SetActive(false);
+    }
+
+    private void ShowErrorMessage() {
+        // Prevents dismiss purchase text from executing if it is doing so
+        StopAllCoroutines();
+
+        notificationText.text = "Not enough funds";
+        notificationText.color = Color.red;
+
+        notificationText.gameObject.SetActive(true);
+
+        StartCoroutine(DismissPurchaseText());
+    }
+
+    private void ShowSuccessMessage() {
+        StopAllCoroutines();
+
+        notificationText.text = "Purchase successful";
+        notificationText.color = Color.white;
+
+        notificationText.gameObject.SetActive(true);
+
+        StartCoroutine(DismissPurchaseText());
     }
 }
