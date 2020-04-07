@@ -59,15 +59,27 @@ public class Simulator : MonoBehaviour
         {
             if (disaster == "drought")
             {
-                //Mainland countries lose some money
-                stateList.IndexOf("asd;kasd");
+                
+                if (DataManager.brownState.numCows > 0 && DataManager.orangeState.numCows > 0)
+                {
+                    DataManager.brownState.numCows -= 1;
+                    DataManager.orangeState.numCows -= 1;
+                }
             }
             else if (disaster == "fire")
             {
-                //Inland cities lose some grains
+                //Yellow lose some grains
+                if (DataManager.yellowState.numGrains > 0) {
+                    DataManager.yellowState.numGrains -= 1;
+                }
             }
             else if (disaster == "flood") {
                 //Coastal cities lose cattle
+                if (DataManager.blueState.numCows > 0 && DataManager.aquaState.numCows > 0)
+                {
+                    DataManager.aquaState.numCows -= 1;
+                    DataManager.blueState.numCows -= 1;
+                }
             }
         }
         // Update values
