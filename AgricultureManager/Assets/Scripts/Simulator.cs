@@ -8,11 +8,16 @@ public class Simulator : MonoBehaviour
     public Text yearText;
     public Text moneyText;
     public Text co2Text;
+    public Text diasterText;
 
     [Range(1, 100)]
     public int cowDeathChance = 25;
-    public int moneyFromCows = 5;
-    public int moneyFromGrain = 10;
+    public float moneyFromCows = 1f;
+    public float moneyFromGrain = 2f;
+    public float co2FromCows = 0.5f;
+    public float co2FromGrain = 0.1f;
+    public float moneyLostFromco2 = .1f;
+    public int operatingCosts = 20;
 
     // Start is called before the first frame update
     private List<State> stateList;
@@ -27,25 +32,44 @@ public class Simulator : MonoBehaviour
     void RunSimulation() {
         int totalMoney = 0;
         float totalCo2 = 0;
-        // Compute state costs
-        // Compute CO2 costs
-        foreach (State state in stateList) {
-            totalMoney += state.dollars;
-            totalCo2 += state.co2Emissions;
-        }
-
-        moneyText.text = $"Total Cash: ${totalMoney}";
-        co2Text.text = $"Total CO2: {totalCo2}";
 
         // Increase the state dollar amounts based on their number of cows/grains
         foreach (State state in stateList) {
-            state.dollars += state.numCows * moneyFromCows + state.numGrains + moneyFromGrain;
+            state.dollars += (int) Mathf.Floor(state.numCows * moneyFromCows + state.numGrains + moneyFromGrain);
+            //Operating costs
+            state.dollars -= (int) Mathf.Floor(state.co2Emissions * moneyLostFromco2) + operatingCosts;
+            //Calculate co2 from cows
+            state.co2Emissions += (state.numCows * co2FromCows) + (state.numGrains * co2FromGrain);
         }
 
+        foreach (State state in stateList)
+        {
+            totalMoney += state.dollars;
+            totalCo2 += state.co2Emissions;
+        }
+        
+        moneyText.text = $"Total Cash: ${totalMoney}";
+        co2Text.text = $"Total CO2: {totalCo2}";
         // Run random effects
         RunCowDeath();
         List<string> disasters = DataManager.randomDisasters();
-
+        diasterText.text = $"Natural Diasters: {disasters.Count}";
+        //TODO: Update visuals if we get a disaster
+        foreach(string disaster in disasters)
+        {
+            if (disaster == "drought")
+            {
+                //Mainland countries lose some money
+                stateList.IndexOf("asd;kasd");
+            }
+            else if (disaster == "fire")
+            {
+                //Inland cities lose some grains
+            }
+            else if (disaster == "flood") {
+                //Coastal cities lose cattle
+            }
+        }
         // Update values
         DataManager.currentYear += 1;
     }

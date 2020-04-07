@@ -6,6 +6,7 @@ public class State
         this.numCows = numCows;
         this.numGrains = numGrains;
         this.dollars = dollars;
+        this.co2Emissions = (numCows * .5f) + (numGrains * .1f);
     }
 
     public string name;

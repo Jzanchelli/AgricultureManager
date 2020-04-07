@@ -23,9 +23,9 @@ public static class DataManager
     private static PropertyInfo[] properties;
 
     static DataManager() {
-        int startingCows = 10;
-        int startingGrains = 10;
-        int startingDollars = 10;
+        int startingCows = 2;
+        int startingGrains = 2;
+        int startingDollars = 50;
 
         // Order is (Name, NumCows, NumGrains, StartingDollars)
         aquaState = new State("Aqua", startingCows, startingGrains, startingDollars);
