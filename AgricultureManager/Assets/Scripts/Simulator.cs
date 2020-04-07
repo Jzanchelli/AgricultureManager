@@ -53,7 +53,7 @@ public class Simulator : MonoBehaviour
         // Run random effects
         RunCowDeath();
         List<string> disasters = DataManager.randomDisasters();
-        diasterText.text = $"Natural Diasters: {disasters.Count}";
+        diasterText.text = $"Natural Disasters: {disasters.Count}";
         //TODO: Update visuals if we get a disaster
         foreach(string disaster in disasters)
         {

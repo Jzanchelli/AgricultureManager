@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 505894411}
   - component: {fileID: 505894410}
   m_Layer: 5
-  m_Name: DiasterText
+  m_Name: DisasterText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Natural Diasters: x'
+  m_Text: 'Natural Disasters: x'
 --- !u!222 &505894411
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -556,6 +556,10 @@ MonoBehaviour:
   cowDeathChance: 25
   moneyFromCows: 5
   moneyFromGrain: 10
+  co2FromCows: 0.5
+  co2FromGrain: 0.1
+  moneyLostFromco2: 0.1
+  operatingCosts: 20
 --- !u!4 &665129895
 Transform:
   m_ObjectHideFlags: 0
