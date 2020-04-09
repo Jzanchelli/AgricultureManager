@@ -14,6 +14,8 @@ public class HoverController : MonoBehaviour
     public Text cowText;
     public Text grainText;
 
+    public float fadeTime = 0.5f;
+
     void Start() {
         canvasGroup = GetComponent<CanvasGroup>();
     }
@@ -27,15 +29,22 @@ public class HoverController : MonoBehaviour
 
     // Change to lerp through
     public void Hide() {
-        canvasGroup.alpha = 0f;
+        LeanTween.cancel(gameObject);
+        
+        LeanTween.value(gameObject, TweenCallback, canvasGroup.alpha, 0f, fadeTime);
     }
 
     public void Show(State state) {
-        canvasGroup.alpha = 1f;
+        LeanTween.cancel(gameObject);
+        LeanTween.value(gameObject, TweenCallback, canvasGroup.alpha, 1f, fadeTime);
 
         moneyText.text = $"Money: ${state.dollars}";
         co2Text.text = $"Co2: {state.co2Emissions}";
         cowText.text = $"Cows: {state.numCows}";
         grainText.text = $"Grains: {state.numGrains}";
+    }
+
+    void TweenCallback(float value) {
+        canvasGroup.alpha = value;
     }
 }
