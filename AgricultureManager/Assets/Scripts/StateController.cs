@@ -10,11 +10,21 @@ public class StateController : MonoBehaviour
     private CoreGameController gameController;
 
     private State stateModel;
+    private HoverController hoverController;
 
     void Start() {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<CoreGameController>();
         stateModel = LookupState();
         stateImageHolder = GameObject.FindGameObjectWithTag("StateImage").GetComponent<Image>();
+        hoverController = GameObject.Find("HoverMessage").GetComponent<HoverController>();
+    }
+
+    private void OnMouseEnter() {
+        hoverController.Show(stateModel);
+    }
+
+    private void OnMouseExit() {
+        hoverController.Hide();
     }
 
     private void OnMouseDown() {
