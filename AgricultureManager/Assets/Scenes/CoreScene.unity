@@ -5340,12 +5340,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 10, y: -5, z: 0}
   camera: {fileID: 102264863}
-  BasisObject: {fileID: 742238600}
   moneyText: {fileID: 795662942}
   co2Text: {fileID: 115563000}
   cowText: {fileID: 1360786930}
   grainText: {fileID: 1495358070}
-  fadeTime: 0.5
+  fadeTime: 0.25
 --- !u!1 &2042302864
 GameObject:
   m_ObjectHideFlags: 0

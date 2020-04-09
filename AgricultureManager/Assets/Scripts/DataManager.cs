@@ -23,25 +23,7 @@ public static class DataManager
     private static PropertyInfo[] properties;
 
     static DataManager() {
-        int startingCows = 2;
-        int startingGrains = 2;
-        int startingDollars = 50;
-
-        // Order is (Name, NumCows, NumGrains, StartingDollars)
-        aquaState = new State("Aqua", startingCows, startingGrains, startingDollars);
-        blueState = new State("Blue", startingCows, startingGrains, startingDollars);
-        brownState = new State("Brown", startingCows, startingGrains, startingDollars);
-        darkGreenState = new State("Dark Green", startingCows, startingGrains, startingDollars);
-        greenState = new State("Green", startingCows, startingGrains, startingDollars);
-        lightGreenState = new State("Light Green", startingCows, startingGrains, startingDollars);
-        yellowState = new State("Yellow", startingCows, startingGrains, startingDollars);
-        orangeState = new State("Orange", startingCows, startingGrains, startingDollars);
-
-        currentYear = 1;
-
-        droughtChance = 5;
-        floodingChance = 5;
-        fireChance = 5;
+        Reset();
 
         properties = typeof(DataManager).GetProperties();
     }
@@ -108,5 +90,27 @@ public static class DataManager
         }
 
         return states;
+    }
+
+    public static void Reset() {
+        int startingCows = 2;
+        int startingGrains = 2;
+        int startingDollars = 50;
+
+        // Order is (Name, NumCows, NumGrains, StartingDollars)
+        aquaState = new State("Aqua", startingCows, startingGrains, startingDollars);
+        blueState = new State("Blue", startingCows, startingGrains, startingDollars);
+        brownState = new State("Brown", startingCows, startingGrains, startingDollars);
+        darkGreenState = new State("Dark Green", startingCows, startingGrains, startingDollars);
+        greenState = new State("Green", startingCows, startingGrains, startingDollars);
+        lightGreenState = new State("Light Green", startingCows, startingGrains, startingDollars);
+        yellowState = new State("Yellow", startingCows, startingGrains, startingDollars);
+        orangeState = new State("Orange", startingCows, startingGrains, startingDollars);
+
+        currentYear = 1;
+
+        droughtChance = 5;
+        floodingChance = 5;
+        fireChance = 5;
     }
 }

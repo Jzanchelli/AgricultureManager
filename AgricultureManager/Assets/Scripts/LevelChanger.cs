@@ -61,4 +61,8 @@ public class LevelChanger : MonoBehaviour
         }
         
     }
+
+    public void Reset() {
+        DataManager.Reset();
+    }
 }
