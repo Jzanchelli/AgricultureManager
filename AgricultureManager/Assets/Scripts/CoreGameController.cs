@@ -59,7 +59,6 @@ public class CoreGameController : MonoBehaviour
             ShowSuccessMessage();
             cowSlider.value = 0;
             grainSlider.value = 0;
-            Debug.Log("Purchase successful");
             _activeState.numCows += cowsToBuy;
             _activeState.numGrains += grainToBuy;
             _activeState.dollars -= (cowDollars + grainDollars);

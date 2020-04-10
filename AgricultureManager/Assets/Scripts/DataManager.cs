@@ -22,6 +22,8 @@ public static class DataManager
 
     private static PropertyInfo[] properties;
 
+    public static string playerCharacter { get; set; }
+
     static DataManager() {
         Reset();
 

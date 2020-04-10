@@ -34,17 +34,12 @@ public class LevelChanger : MonoBehaviour
     }
 
     void Loss() {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Scenes/LoseScene");
     }
 
     void Win() {
         // Loads the next scene in the build settings after this one. Make sure this is the winning page
-        SceneManager.LoadScene(5);
-    }
-
-    // Loads last scene in build settings (should be help menu)
-    public void GoToHelp() {
-        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+        SceneManager.LoadScene("Scenes/WinScene");
     }
 
     public void GoToMainMenu() {
