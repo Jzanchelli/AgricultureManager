@@ -36,7 +36,7 @@ public class CoreGameController : MonoBehaviour
 
     void Start()
     {
-        yearText.text = $"Year {DataManager.currentYear}";
+        yearText.text = $"Year {DataManager.currentYear}/10";
     }
 
     // Called when purchased button is clicked
