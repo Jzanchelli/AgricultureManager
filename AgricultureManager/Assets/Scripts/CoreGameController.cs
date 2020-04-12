@@ -26,8 +26,8 @@ public class CoreGameController : MonoBehaviour
         }
     }
 
-    [SerializeField] private Slider cowSlider = null;
-    [SerializeField] private Slider grainSlider = null;
+    [SerializeField] private Spawn cowSpawner = null;
+    [SerializeField] private Spawn grainSpawner = null;
 
     [SerializeField] private int cowCost = 10;
     [SerializeField] private int grainCost = 10;
@@ -42,8 +42,9 @@ public class CoreGameController : MonoBehaviour
     // Called when purchased button is clicked
     public void UpdateState() {
         // Any changes made to this state will then affect the states below it
-        int cowsToBuy = (int)cowSlider.value;
-        int grainToBuy = (int)grainSlider.value;
+        // int cowsToBuy = (int)cowSlider.value;
+        int cowsToBuy = cowSpawner.Count();
+        int grainToBuy = grainSpawner.Count();
 
         // Check if able to buy this amount
         int cowDollars = cowsToBuy * cowCost;
@@ -57,8 +58,8 @@ public class CoreGameController : MonoBehaviour
         else {
             // Alert the user also that the purchase worked
             ShowSuccessMessage();
-            cowSlider.value = 0;
-            grainSlider.value = 0;
+            cowSpawner.Clear();
+            grainSpawner.Clear();
             _activeState.numCows += cowsToBuy;
             _activeState.numGrains += grainToBuy;
             _activeState.dollars -= (cowDollars + grainDollars);
