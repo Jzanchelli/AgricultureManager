@@ -11,16 +11,19 @@ public class Spawn : MonoBehaviour
     
     private Stack<GameObject> items;
     private Quaternion upsideDown;
+    // This is used to prevent grains/cows from appearing when a state isn't selected
+    private CoreGameController controller;
 
     private void Start() {
         items = new Stack<GameObject>();
         upsideDown = new Quaternion {
             eulerAngles = new Vector3(0, 0, 180)
         };
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<CoreGameController>();
     }
 
     public void Create() {
-        if(items.Count < 5) {
+        if(items.Count < 5 && controller.activeState != null) {
             var newObj = Instantiate(item, transform.position + new Vector3(xOffest, 0) * items.Count, upsideDown, transform);
             newObj.transform.localScale = Vector3.zero;
             // 360 since I want the object to rotate clockwise

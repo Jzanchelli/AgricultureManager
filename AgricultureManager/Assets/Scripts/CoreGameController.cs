@@ -41,31 +41,33 @@ public class CoreGameController : MonoBehaviour
 
     // Called when purchased button is clicked
     public void UpdateState() {
-        // Any changes made to this state will then affect the states below it
-        // int cowsToBuy = (int)cowSlider.value;
-        int cowsToBuy = cowSpawner.Count();
-        int grainToBuy = grainSpawner.Count();
+        if(_activeState != null) {
+            // Any changes made to this state will then affect the states below it
+            // int cowsToBuy = (int)cowSlider.value;
+            int cowsToBuy = cowSpawner.Count();
+            int grainToBuy = grainSpawner.Count();
 
-        // Check if able to buy this amount
-        int cowDollars = cowsToBuy * cowCost;
-        int grainDollars = grainToBuy * grainCost;
-        
-        if(cowDollars + grainDollars > _activeState.dollars) {
-            // Unable to purchase. Alert the user in some way
-            Debug.LogWarning("Unable to purchase this amount of grains/cows");
-            ShowErrorMessage();
-        }
-        else {
-            // Alert the user also that the purchase worked
-            ShowSuccessMessage();
-            cowSpawner.Clear();
-            grainSpawner.Clear();
-            _activeState.numCows += cowsToBuy;
-            _activeState.numGrains += grainToBuy;
-            _activeState.dollars -= (cowDollars + grainDollars);
-        }
+            // Check if able to buy this amount
+            int cowDollars = cowsToBuy * cowCost;
+            int grainDollars = grainToBuy * grainCost;
 
-        NewStateClicked();
+            if (cowDollars + grainDollars > _activeState.dollars) {
+                // Unable to purchase. Alert the user in some way
+                Debug.LogWarning("Unable to purchase this amount of grains/cows");
+                ShowErrorMessage();
+            } else {
+                // Alert the user also that the purchase worked
+                ShowSuccessMessage();
+                cowSpawner.Clear();
+                grainSpawner.Clear();
+                _activeState.numCows += cowsToBuy;
+                _activeState.numGrains += grainToBuy;
+                _activeState.dollars -= (cowDollars + grainDollars);
+            }
+
+            // Refresh the states text fields
+            NewStateClicked();
+        }   
     }
 
     public void NewStateClicked() {
