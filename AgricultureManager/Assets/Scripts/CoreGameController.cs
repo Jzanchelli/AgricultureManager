@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CoreGameController : MonoBehaviour
 {
@@ -16,7 +17,15 @@ public class CoreGameController : MonoBehaviour
     [SerializeField] private Text cowText = null;
     [SerializeField] private Text grainText = null;
     [SerializeField] private Text notificationText = null;
-    
+    [SerializeField] private Text factText = null;
+
+    private String[] factArray = { "Raising animals for food takes up half of all water used in the U.S." ,
+        "Cow burps and farts make up 20 percent of U.S. methane-gas emissions.",
+        "It takes more than 11 times as much fossil fuel to make one calorie from animal protein as it does to make one calorie from plant protein.",
+        "Animal agriculture is a leading source of carbon-dioxide, nitrous-oxide, and methane emissions, the top three greenhouse gasses.",
+        "If every American skipped one meal of chicken per week and ate vegan food instead, it would be like taking 500,000 cars off the road.",
+        "On August 8, 2019, the IPCC released a summary of the 2019 special report which asserted that a shift towards plant-based diets would help to mitigate and adapt to climate change"
+    };
     // The active state is updated in our "OnClick" event (see StateController), it should not be manually set in the inspector
     // https://stackoverflow.com/questions/5842339/how-to-trigger-event-when-a-variables-value-is-changed
     public State activeState { get { return _activeState; }
@@ -31,14 +40,20 @@ public class CoreGameController : MonoBehaviour
 
     [SerializeField] private int cowCost = 10;
     [SerializeField] private int grainCost = 10;
-
+    
     private State _activeState;
 
     void Start()
     {
         yearText.text = $"Year {DataManager.currentYear}/10";
+        factText.text = getRandomText();
     }
 
+    public string getRandomText()
+    {
+        int randnum = Random.Range(0, factArray.Length);
+        return factArray[randnum];
+    }
     // Called when purchased button is clicked
     public void UpdateState() {
         if(_activeState != null) {
