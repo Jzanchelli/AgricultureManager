@@ -82,6 +82,8 @@ public class Simulator : MonoBehaviour
                 }
             }
         }
+
+        DataManager.currentYear += 1;
     }
 
     public void ResetGrainCount() {
@@ -101,9 +103,5 @@ public class Simulator : MonoBehaviour
 
             state.numCows -= deaths;
         }
-    }
-
-    public void IncrementYear() {
-        DataManager.currentYear += 1;
     }
 }
