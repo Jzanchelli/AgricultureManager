@@ -82,8 +82,6 @@ public class Simulator : MonoBehaviour
                 }
             }
         }
-        // Update values
-        DataManager.currentYear += 1;
     }
 
     public void ResetGrainCount() {
@@ -105,7 +103,7 @@ public class Simulator : MonoBehaviour
         }
     }
 
-    private void IncreaseMoney() {
-        
+    public void IncrementYear() {
+        DataManager.currentYear += 1;
     }
 }
