@@ -11,12 +11,19 @@ public class LevelChanger : MonoBehaviour
 
     public CanvasGroup loseFader;
     public CanvasGroup winFader;
+    public CanvasGroup mainMenuFader;
 
     void Start() {
+        // These faders only apply to the Recap scene
         if(winFader && loseFader) {
             winFader.alpha = 0;
             loseFader.alpha = 0;
         }
+        // This fader is only for the Win/Lose scenes
+        if(mainMenuFader) {
+            mainMenuFader.alpha = 0;
+        }
+
         ResetTransitionPos();
     }
 
@@ -68,7 +75,10 @@ public class LevelChanger : MonoBehaviour
     }
 
     public void GoToMainMenu() {
-        SceneManager.LoadScene(0);
+        LeanTween.value(gameObject,
+            (val) => mainMenuFader.alpha = val,
+            0, 1, 0.5f)
+            .setOnComplete(() => SceneManager.LoadScene(0));
     }
 
     public void Quit() {
