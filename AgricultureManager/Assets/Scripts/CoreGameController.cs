@@ -87,7 +87,7 @@ public class CoreGameController : MonoBehaviour
 
     public void NewStateClicked() {
         stateText.text = $"State: {_activeState.name}";
-        co2Text.text = $"Yearly CO2: {_activeState.co2Emissions}";
+        co2Text.text = $"Methane: {_activeState.co2Emissions}";
         moneyText.text = $"Money: ${_activeState.dollars}";
         cowText.text = $"Cow count: {_activeState.numCows}";
         grainText.text = $"Grain count: {_activeState.numGrains}";
