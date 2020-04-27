@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1082,19 +1082,16 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "Agriculture Manager is a simplified simulation game of how food production
-    plays a critical role in the C02 in the atmosphere.\n\nObjective: The goal of
-    the game is to survive ten years.\n\nHow to play:\n\n\tAfter hitting the play
-    button, you will see the country you are managing. Each state has unique properties
-    that are hidden from the player. You are allowed to control how much grains and
-    cows each state purchases each year. Cows have a 25% chance of dieing after each
-    year where as grains need to be purchased after every year for the new harvest.
-    The reason why you should buy or sell these commidities are up to the user after
-    feeling the effects of their actions. If the player incorrectly manages their
-    country, by either producing too much C02 or running out of money on a country
-    scale, you will lose. Each cow and grain will have a set amount of money they
-    will generate, and this is based on a variety of variables once again, hidden
-    from the player. The more you play, the more you will learn the actions of our
-    food production methods."
+    plays a critical role in the emission of greenhouse gases.\n\nThe goal of the
+    game is to survive ten years.\n\nEach state has secret unique properties. You
+    are allowed to control how much grains and cows each state purchases each year.
+    \n\nCows have a 25% chance of dying each year where as grains need to be purchased
+    after every year for the new harvest. Puchasing these will increase the states
+    cash values at the end of the year, but cows will also contribute to that state's
+    methane emissions. \n\nIf the player incorrectly manages their country, either
+    by emitting too much methane or running out of money across the country, you will
+    lose.The more you play, the more you will learn the consequences of our food production
+    methods."
 --- !u!222 &1410659285
 CanvasRenderer:
   m_ObjectHideFlags: 0
