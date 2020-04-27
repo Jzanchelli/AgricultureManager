@@ -60,4 +60,9 @@ public class LevelChanger : MonoBehaviour
     public void Reset() {
         DataManager.Reset();
     }
+
+    public void LoadMainScene() {
+        // TODO: Attempt to load the scene asyncly and then trigger the transition
+        SceneManager.LoadSceneAsync("Scenes/CoreScene");
+    }
 }
