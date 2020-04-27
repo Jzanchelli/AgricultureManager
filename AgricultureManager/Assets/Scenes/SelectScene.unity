@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 458303569}
   - component: {fileID: 458303568}
   m_Layer: 5
-  m_Name: Darken
+  m_Name: Fader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,10 +627,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 458303564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60cb8a66f0c1f364c9b340b94af89a20, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ccf61b9ee722d54694f778da04b197b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 0.5
+  increaseAlpha: 1
 --- !u!225 &458303569
 CanvasGroup:
   m_ObjectHideFlags: 0
