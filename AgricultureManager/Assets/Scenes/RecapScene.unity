@@ -212,10 +212,10 @@ RectTransform:
   m_Children:
   - {fileID: 1758862026}
   - {fileID: 1490994452}
-  - {fileID: 1786213275}
   - {fileID: 75056714}
   - {fileID: 1353703932}
   - {fileID: 505894409}
+  - {fileID: 1786213275}
   - {fileID: 446618389}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 75056714}
   - component: {fileID: 75056716}
   - component: {fileID: 75056715}
+  - component: {fileID: 75056717}
   m_Layer: 5
   m_Name: MoneyText
   m_TagString: Untagged
@@ -255,7 +256,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 57224119}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -302,6 +303,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75056713}
   m_CullTransparentMesh: 0
+--- !u!225 &75056717
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75056713}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &334556261
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +542,7 @@ GameObject:
   - component: {fileID: 505894409}
   - component: {fileID: 505894411}
   - component: {fileID: 505894410}
+  - component: {fileID: 505894412}
   m_Layer: 5
   m_Name: DisasterText
   m_TagString: Untagged
@@ -548,7 +562,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 57224119}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -595,6 +609,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505894408}
   m_CullTransparentMesh: 0
+--- !u!225 &505894412
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505894408}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &665129893
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +653,8 @@ MonoBehaviour:
   yearText: {fileID: 1490994453}
   moneyText: {fileID: 75056715}
   co2Text: {fileID: 1353703933}
-  diasterText: {fileID: 505894410}
+  disasterText: {fileID: 505894410}
+  button: {fileID: 1786213276}
   cowDeathChance: 25
   moneyFromCows: 5
   moneyFromGrain: 10
@@ -743,6 +770,7 @@ GameObject:
   - component: {fileID: 1353703932}
   - component: {fileID: 1353703934}
   - component: {fileID: 1353703933}
+  - component: {fileID: 1353703935}
   m_Layer: 5
   m_Name: CO2Text
   m_TagString: Untagged
@@ -762,7 +790,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 57224119}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -809,6 +837,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353703931}
   m_CullTransparentMesh: 0
+--- !u!225 &1353703935
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353703931}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1490994451
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +860,7 @@ GameObject:
   - component: {fileID: 1490994452}
   - component: {fileID: 1490994454}
   - component: {fileID: 1490994453}
+  - component: {fileID: 1490994455}
   m_Layer: 5
   m_Name: YearText
   m_TagString: Untagged
@@ -886,6 +927,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490994451}
   m_CullTransparentMesh: 0
+--- !u!225 &1490994455
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490994451}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1758862025
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,6 +1024,7 @@ GameObject:
   - component: {fileID: 1786213278}
   - component: {fileID: 1786213277}
   - component: {fileID: 1786213276}
+  - component: {fileID: 1786213279}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -991,7 +1045,7 @@ RectTransform:
   m_Children:
   - {fileID: 334556262}
   m_Father: {fileID: 57224119}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1099,6 +1153,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786213274}
   m_CullTransparentMesh: 0
+--- !u!225 &1786213279
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786213274}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &2141143856
 PrefabInstance:
   m_ObjectHideFlags: 0

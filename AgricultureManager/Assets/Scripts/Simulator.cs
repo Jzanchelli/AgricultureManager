@@ -8,7 +8,8 @@ public class Simulator : MonoBehaviour
     public Text yearText;
     public Text moneyText;
     public Text co2Text;
-    public Text diasterText;
+    public Text disasterText;
+    public Button button;
 
     [Range(1, 100)]
     public int cowDeathChance = 25;
@@ -21,11 +22,29 @@ public class Simulator : MonoBehaviour
 
     // Start is called before the first frame update
     private List<State> stateList;
+    private Queue<Text> texts;
+
     void Start()
     {
+        texts = new Queue<Text>();
+
+        yearText.GetComponent<CanvasGroup>().alpha = 0;
+        moneyText.GetComponent<CanvasGroup>().alpha = 0;
+        co2Text.GetComponent<CanvasGroup>().alpha = 0;
+        disasterText.GetComponent<CanvasGroup>().alpha = 0;
+        button.GetComponent<CanvasGroup>().alpha = 0;
+        button.interactable = false;
+
+        texts.Enqueue(yearText);
+        texts.Enqueue(moneyText);
+        texts.Enqueue(co2Text);
+        texts.Enqueue(disasterText);
+
         yearText.text = $"Results from Year {DataManager.currentYear}";
         stateList = DataManager.GetStates();
         RunSimulation();
+
+        FadeIns();
     }
 
     // Resolve everything that the player did on the previous page
@@ -53,7 +72,7 @@ public class Simulator : MonoBehaviour
         // Run random effects
         RunCowDeath();
         List<string> disasters = DataManager.randomDisasters();
-        diasterText.text = $"Natural Disasters: {disasters.Count}";
+        disasterText.text = $"Natural Disasters: {disasters.Count}";
         //TODO: Update visuals if we get a disaster
         foreach(string disaster in disasters)
         {
@@ -103,5 +122,30 @@ public class Simulator : MonoBehaviour
 
             state.numCows -= deaths;
         }
+    }
+
+    private void FadeIns() {
+        if(texts.Count > 0) {
+            Text element = texts.Dequeue();
+
+            // Start the fade in processes
+            CanvasGroup canvas = element.GetComponent<CanvasGroup>();
+
+            // Fade in the year text
+            LeanTween.value(gameObject,
+                (val) => canvas.alpha = val,
+                0, 1, 0.2f)
+                .setOnComplete(() => FadeIns());
+        }
+        else {
+            // Fade in button
+            CanvasGroup canvas = button.GetComponent<CanvasGroup>();
+            // Fade in the year text
+            LeanTween.value(gameObject,
+                (val) => canvas.alpha = val,
+                0, 1, 0.2f)
+                .setOnComplete(() => button.interactable = true);
+        }
+        
     }
 }
