@@ -1,16 +1,26 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelChanger : MonoBehaviour
 {
     public int co2threshold = 1000;
+    public RectTransform transitionBg;
+    [Range(0.2f, 2)]
+    public float transitionSpeed = 0.3f;
+
+    void Start() {
+        ResetTransitionPos();    
+    }
 
     public void NextLevel() {
         Scene current = SceneManager.GetActiveScene();
-
         if (current.name == "RecapScene") {
             CheckForFinish();
-        } 
+        }
+        else if(current.name == "SelectScene") {
+            ShiftBackground(current.buildIndex + 1);
+        }
         else {
             // The main game scene is behind this one
             SceneManager.LoadScene(current.buildIndex + 1);
@@ -29,7 +39,7 @@ public class LevelChanger : MonoBehaviour
             Win();
         }
         else {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            ShiftBackground(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 
@@ -61,8 +71,21 @@ public class LevelChanger : MonoBehaviour
         DataManager.Reset();
     }
 
-    public void LoadMainScene() {
-        // TODO: Attempt to load the scene asyncly and then trigger the transition
-        SceneManager.LoadSceneAsync("Scenes/CoreScene");
+    private void ShiftBackground(int toLoadIndex) {
+        Vector3 pos = transitionBg.position;
+
+        LeanTween.value(gameObject,
+            (val) => {
+                transitionBg.localPosition = new Vector3(val, pos.y, pos.z);
+            },
+            pos.x, pos.x - 800, transitionSpeed)
+            .setOnComplete(() => SceneManager.LoadScene(toLoadIndex));
+    }
+
+    private void ResetTransitionPos() {
+        Scene current = SceneManager.GetActiveScene();
+        if(current.name == "SelectScene" || current.name == "RecapScene") {
+            transitionBg.position = new Vector3(800, 0, 0);
+        }
     }
 }
