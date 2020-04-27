@@ -21,6 +21,9 @@ public class LevelChanger : MonoBehaviour
         else if(current.name == "SelectScene") {
             ShiftBackground(current.buildIndex + 1);
         }
+        else if(current.name == "CoreScene") {
+            ShiftBackgroundUp(current.buildIndex + 1);
+        }
         else {
             // The main game scene is behind this one
             SceneManager.LoadScene(current.buildIndex + 1);
@@ -82,10 +85,24 @@ public class LevelChanger : MonoBehaviour
             .setOnComplete(() => SceneManager.LoadScene(toLoadIndex));
     }
 
+    private void ShiftBackgroundUp(int toLoadIndex) {
+        Vector3 pos = transitionBg.position;
+
+        LeanTween.value(gameObject,
+            (val) => {
+                transitionBg.localPosition = new Vector3(pos.x, val, pos.z);
+            },
+            pos.y, pos.y + 500, transitionSpeed)
+            .setOnComplete(() => SceneManager.LoadScene(toLoadIndex));
+    }
+
     private void ResetTransitionPos() {
         Scene current = SceneManager.GetActiveScene();
         if(current.name == "SelectScene" || current.name == "RecapScene") {
             transitionBg.position = new Vector3(800, 0, 0);
+        }
+        else if(current.name == "CoreScene") {
+            transitionBg.position = new Vector3(0, -500, 0);
         }
     }
 }
