@@ -9,8 +9,15 @@ public class LevelChanger : MonoBehaviour
     [Range(0.2f, 2)]
     public float transitionSpeed = 0.3f;
 
+    public CanvasGroup loseFader;
+    public CanvasGroup winFader;
+
     void Start() {
-        ResetTransitionPos();    
+        if(winFader && loseFader) {
+            winFader.alpha = 0;
+            loseFader.alpha = 0;
+        }
+        ResetTransitionPos();
     }
 
     public void NextLevel() {
@@ -47,12 +54,17 @@ public class LevelChanger : MonoBehaviour
     }
 
     void Loss() {
-        SceneManager.LoadScene("Scenes/LoseScene");
+        LeanTween.value(gameObject,
+            (val) => loseFader.alpha = val,
+            0, 1, 0.5f)
+            .setOnComplete(() => SceneManager.LoadScene("Scenes/LoseScene"));
     }
 
     void Win() {
-        // Loads the next scene in the build settings after this one. Make sure this is the winning page
-        SceneManager.LoadScene("Scenes/WinScene");
+        LeanTween.value(gameObject,
+            (val) => winFader.alpha = val,
+            0, 1, 0.5f)
+            .setOnComplete(() => SceneManager.LoadScene("Scenes/WinScene"));
     }
 
     public void GoToMainMenu() {
