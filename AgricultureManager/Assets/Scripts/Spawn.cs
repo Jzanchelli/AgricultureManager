@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawn : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Spawn : MonoBehaviour
     public float xOffest = 0.5f;
     [Range(0, 1)]
     public float animationSpeed = 0.2f;
-    
+
     private Stack<GameObject> items;
     private Quaternion upsideDown;
     // This is used to prevent grains/cows from appearing when a state isn't selected
@@ -31,6 +32,9 @@ public class Spawn : MonoBehaviour
             LeanTween.scale(newObj, Vector3.one, animationSpeed);
             items.Push(newObj);
         }
+        else if(controller.activeState == null) {
+            controller.ShowWarningMessage();
+        }
     }
 
     public void Delete() {
@@ -38,6 +42,9 @@ public class Spawn : MonoBehaviour
             var obj = items.Pop();
             LeanTween.rotateZ(obj, 180, animationSpeed);
             LeanTween.scale(obj, Vector3.zero, animationSpeed).setOnComplete(() => Destroy(obj));
+        }
+        else if(controller.activeState == null) {
+            controller.ShowWarningMessage();
         }
     }
 

@@ -62,6 +62,11 @@ public class CoreGameController : MonoBehaviour
             int cowsToBuy = cowSpawner.Count();
             int grainToBuy = grainSpawner.Count();
 
+            // Don't show the purchase messages if nothing is going to happen
+            if(cowsToBuy == 0 && grainToBuy == 0) {
+                return;
+            }
+
             // Check if able to buy this amount
             int cowDollars = cowsToBuy * cowCost;
             int grainDollars = grainToBuy * grainCost;
@@ -82,7 +87,10 @@ public class CoreGameController : MonoBehaviour
 
             // Refresh the states text fields
             NewStateClicked();
-        }   
+        }
+        else {
+            ShowWarningMessage();   
+        }
     }
 
     public void NewStateClicked() {
@@ -91,6 +99,16 @@ public class CoreGameController : MonoBehaviour
         moneyText.text = $"Money: ${_activeState.dollars}";
         cowText.text = $"Cow count: {_activeState.numCows}";
         grainText.text = $"Grain count: {_activeState.numGrains}";
+    }
+
+    public void ShowWarningMessage() {
+        StopAllCoroutines();
+
+        notificationText.text = "Select a state first";
+        notificationText.color = Color.yellow;
+        notificationText.gameObject.SetActive(true);
+
+        StartCoroutine(DismissPurchaseText());
     }
 
     private IEnumerator DismissPurchaseText() {
