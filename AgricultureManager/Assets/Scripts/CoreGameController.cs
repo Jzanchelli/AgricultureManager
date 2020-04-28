@@ -24,7 +24,10 @@ public class CoreGameController : MonoBehaviour
         "It takes more than 11 times as much fossil fuel to make one calorie from animal protein as it does to make one calorie from plant protein.",
         "Animal agriculture is a leading source of carbon-dioxide, nitrous-oxide, and methane emissions, the top three greenhouse gasses.",
         "If every American skipped one meal of chicken per week and ate vegan food instead, it would be like taking 500,000 cars off the road.",
-        "On August 8, 2019, the IPCC released a summary of the 2019 special report which asserted that a shift towards plant-based diets would help to mitigate and adapt to climate change"
+        "On August 8, 2019, the IPCC released a summary of the 2019 special report which asserted that a shift towards plant-based diets would help to mitigate and adapt to climate change",
+        "Production of beef and ruminant meat like lamb emitted the most CO2 per gram of protein, while non-meat protein sources like soy and eggs emitted the least",
+        "The average person needs around 50 grams of protein per day, but the report shows that getting this protein from soy products instead of beef could reduce daily carbon emissions by 12.16kg of CO2.",
+        "Chatham House urges governments to intervene in order to reduce meat consumption and limit climate change and establish international norms for a sustainable, healthy diet."
     };
     // The active state is updated in our "OnClick" event (see StateController), it should not be manually set in the inspector
     // https://stackoverflow.com/questions/5842339/how-to-trigger-event-when-a-variables-value-is-changed
