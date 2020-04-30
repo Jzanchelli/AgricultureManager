@@ -8,6 +8,7 @@ public class Simulator : MonoBehaviour
     public Text yearText;
     public Text moneyText;
     public Text co2Text;
+    public Text staticDisasterText;
     public Text disasterText;
     public Button button;
 
@@ -45,6 +46,7 @@ public class Simulator : MonoBehaviour
         yearText.GetComponent<CanvasGroup>().alpha = 0;
         moneyText.GetComponent<CanvasGroup>().alpha = 0;
         co2Text.GetComponent<CanvasGroup>().alpha = 0;
+        staticDisasterText.GetComponent<CanvasGroup>().alpha = 0;
         disasterText.GetComponent<CanvasGroup>().alpha = 0;
         button.GetComponent<CanvasGroup>().alpha = 0;
         button.interactable = false;
@@ -52,6 +54,7 @@ public class Simulator : MonoBehaviour
         texts.Enqueue(yearText);
         texts.Enqueue(moneyText);
         texts.Enqueue(co2Text);
+        texts.Enqueue(staticDisasterText);
         texts.Enqueue(disasterText);
 
         yearText.text = $"Results from Year {DataManager.currentYear}";
@@ -86,13 +89,15 @@ public class Simulator : MonoBehaviour
         // Run random effects
         RunCowDeath();
         List<string> disasters = DataManager.randomDisasters();
-        disasterText.text = $"Natural Disasters: {disasters.Count}";
+        string disasterUiText = "None";
+        
         //TODO: Update visuals if we get a disaster
         foreach(string disaster in disasters)
         {
+            disasterUiText = "";    
             if (disaster == "drought")
             {
-                
+                disasterUiText += "Drought\n";
                 if (DataManager.brownState.numCows > 0 && DataManager.orangeState.numCows > 0)
                 {
                     DataManager.brownState.numCows -= 1;
@@ -101,12 +106,14 @@ public class Simulator : MonoBehaviour
             }
             else if (disaster == "fire")
             {
+                disasterUiText += "Fire\n";
                 //Yellow lose some grains
                 if (DataManager.yellowState.numGrains > 0) {
                     DataManager.yellowState.numGrains -= 1;
                 }
             }
             else if (disaster == "flood") {
+                disasterUiText += "Flood\n";
                 //Coastal cities lose cattle
                 if (DataManager.blueState.numCows > 0 && DataManager.aquaState.numCows > 0)
                 {
@@ -115,6 +122,8 @@ public class Simulator : MonoBehaviour
                 }
             }
         }
+
+        disasterText.text = disasterUiText;
 
         DataManager.currentYear += 1;
     }
