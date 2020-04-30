@@ -24,8 +24,22 @@ public class Simulator : MonoBehaviour
     private List<State> stateList;
     private Queue<Text> texts;
 
+    [SerializeField] private GameObject male;
+    [SerializeField] private GameObject female;
+
     void Start()
     {
+        // Toggle the correct picture
+        male.SetActive(false);
+        female.SetActive(false);
+        if(DataManager.playerCharacter == "Male") {
+            male.SetActive(true);
+        }
+        else {
+            female.SetActive(true);
+        }
+
+
         texts = new Queue<Text>();
 
         yearText.GetComponent<CanvasGroup>().alpha = 0;
