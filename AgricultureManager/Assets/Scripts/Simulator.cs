@@ -24,8 +24,8 @@ public class Simulator : MonoBehaviour
     private List<State> stateList;
     private Queue<Text> texts;
 
-    [SerializeField] private GameObject male;
-    [SerializeField] private GameObject female;
+    public GameObject male;
+    public GameObject female;
 
     void Start()
     {
