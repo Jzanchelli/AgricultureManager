@@ -82,14 +82,19 @@ public class LevelChanger : MonoBehaviour
     }
 
     public void Quit() {
-        Application.Quit();
+        // Fade out then quit
+        LeanTween.value(gameObject,
+            (val) => mainMenuFader.alpha = val,
+            0, 1, 0.5f)
+            .setOnComplete(() => {
+                Application.Quit();
 
-        // The above doesn't close the game if it is in the Unity editor
-        // This will simulate the above functionality but in the editor
-        if (UnityEditor.EditorApplication.isPlaying) {
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
-        
+                // The above doesn't close the game if it is in the Unity editor
+                // This will simulate the above functionality but in the editor
+                if (UnityEditor.EditorApplication.isPlaying) {
+                    UnityEditor.EditorApplication.isPlaying = false;
+                }
+            });
     }
 
     public void Reset() {
