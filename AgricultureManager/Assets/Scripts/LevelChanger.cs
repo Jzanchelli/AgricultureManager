@@ -91,9 +91,11 @@ public class LevelChanger : MonoBehaviour
 
                 // The above doesn't close the game if it is in the Unity editor
                 // This will simulate the above functionality but in the editor
+                #if UNITY_EDITOR
                 if (UnityEditor.EditorApplication.isPlaying) {
                     UnityEditor.EditorApplication.isPlaying = false;
                 }
+                #endif
             });
     }
 
